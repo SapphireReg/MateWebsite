@@ -1,0 +1,116 @@
+class Profile {
+
+    constructor(name, age, interest, gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.interest = interest;
+        this.score = 0
+    }
+    getDetails() {
+        return [this.name, this.age, this.interest];
+    }
+    set profScore(score) {
+        this.score = score;
+    }
+}
+
+// this gives a score based on customer interest compatibility
+function intScore(profile, customer) {
+    counter = 0;
+    score = 0;
+    for (x in profile.interest) {
+        for (y in customer[2]) {
+            if (profile.interest[x] == customer[2][y]) {
+                score += 1;
+            }
+        }
+    }
+    profile.profScore = score;
+}
+
+function scoreList(list) {
+    for (x in list) {
+        intScore(list[x], customer)
+    }
+}
+
+function ageAprox(list, customer, newList) {
+    a = 0
+    while (newList.length < 6) {
+        if (list[a].age == customer[1]) {
+            newList.push(list[a]);
+            a += 1;
+        }
+        else if (list[a].age >= customer[1] - 5 && list[a].age <= customer[1] + 5) {
+            newList.push(list[a]);
+            a += 1;
+        }
+        else if (a == list.length - 1) {
+            break
+        }
+        else {
+            a += 1;
+        }
+    }
+}
+
+function list3Check(list, customer, newList) {
+    if (newList.length < 3) {
+        a = 0
+        while (newList.length < 3) {
+            if (list[a].age >= customer[1] - 10 && list[a].age <= customer[1] + 10) {
+                newList.push(list[a]);
+                a += 1;
+            }
+            else if (a == list.length - 1) {
+                break;
+            }
+            else {
+                a += 1;
+            }
+        }
+    }
+}
+
+function match(list) {
+    list.sort((a, b) => b.score - a.score);
+    return [list[0], list[1], list[2]];
+}
+
+let profile1 = new Profile('Pam Beasly', 30, ['Art', 'Painting', 'Gardening'], 'F');
+let profile2 = new Profile('Erin Hannon', 25, ['Television', 'Music', 'Traveling'], 'F');
+let profile3 = new Profile('Ryan Howard', 20, ['Sports', 'Gaming', 'Technology'], 'M');
+let profile4 = new Profile('Kelly Kapoor', 35, ['Television', 'Dancing', 'Shopping'], 'F');
+let profile5 = new Profile('Jim Halpert', 31, ['Fishing', 'Gaming', 'Sports'], 'M');
+let profile6 = new Profile('Dwight Schrute', 33, ['Fishing', 'Gaming', 'Gardening'], 'M');
+let profile7 = new Profile('Creed Batton', 65, ['Traveling', 'Collecting', 'Reading'], 'M');
+let profile8 = new Profile('Michael Scott', 40, ['Movies', 'Television', 'Acting'], 'M');
+let profile9 = new Profile('Andy Bernard', 45, ['Music', 'Singing', 'Sports'], 'M');
+let profile10 = new Profile('Oscar Nunez', 38, ['Dancing', 'Collecting', 'Reading'], 'M');
+let profile11 = new Profile('Meredith Palmer', 18, ['Singing', 'Dancing', 'Technology'], 'F');
+let profile12 = new Profile('Kevin Malone', 60, ['Sleeping', 'Reading', 'Cooking'], 'M');
+let profile13 = new Profile('Stanley Hudson', 58, ['Sleeping', 'Gaming', 'Reading'], 'M');
+let profile14 = new Profile('Toby Flenderson', 19, ['Sleeping', 'Collecting', 'Reading'], 'M');
+let profile15 = new Profile('Nellie Bertram', 22, ['Dancing', 'Gardening', 'Cooking'], 'F');
+let profile16 = new Profile('Darryl Philbin', 28, ['Music', 'Sports', 'Gaming'], 'M');
+let profile17 = new Profile('Holly Flax', 39, ['Movies', 'Television', 'Acting'], 'F');
+let profile18 = new Profile('Jan Levinson', 42, ['Music', 'Shopping', 'Dancing'], 'F');
+let profile19 = new Profile('David Wallace', 53, ['Reading', 'Sports', 'Fitness'], 'M');
+let profile20 = new Profile('Pete Miller', 23, ['Music', 'Sports', 'Fitness'], 'M');
+let profile21 = new Profile('Gabe Lewis', 23, ['Collecting', 'Movies', 'Reading'], 'M');
+
+const profList = [profile1, profile2, profile3, profile4, profile5, profile6, profile7, profile8, profile9, profile10,
+                  profile11, profile12, profile13, profile14, profile15, profile16, profile17, profile18, profile19, profile20, profile21]
+
+profList.sort((a, b) => a.age - b.age);
+
+customer = ['Random Stranger', 25, ['Gaming', 'Technology', 'Movies'], 'M'];
+
+const matchList3 = [];
+
+ageAprox(profList, customer, matchList3);
+list3Check(profList, customer, matchList3);
+scoreList(matchList3);
+match(matchList3);
+console.log(match(matchList3));
