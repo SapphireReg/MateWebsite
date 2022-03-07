@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Mate - Booking</title>
+	<link rel="stylesheet" href="css/mateCss.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script> 
+	$(function(){
+	  $("#header").load("header.html"); 
+	  $("#footer").load("footer.html"); 
+	});
+	</script> 
+</head>
+<body>
+	<header id="header">
+	</header>
+		<form onsubmit="return false" id="booking-form">
+			<div class="page">
+				<div class="tab">
+					<h1>Personal Details</h1>
+					<label for="name">Name:</label>
+					<input id="fName" placeholder="First Name..." oninput="this.className = ' '" required>
+					<input id="lName" placeholder="Last Name..." oninput="this.className = ' '" required>
+					<label for="email">Email:</label>
+					<input id="emailAdd" type="email" placeholder="email@email.com..." oninput="this.className = ' '" required>
+				</div>
+			</div>
+			<div class="page">
+				<div class="tab">
+					<h1>Additional Details</h1>
+					<div class="form-details">
+						<label style="grid-area:age;justify-self:end;" for="age">Age:</label> 
+						<input id="age" style="width:40%;grid-area:ageInput;" placeholder="11-100" oninput="this.classname = ''" required>
+						<span style="display:flex;grid-area:sex;justify-self:end;">
+							<label for="sex">Sex:</label> 
+							<input type="radio" name="sex" value="M" required> Male 
+							<input type="radio" name="sex" value="F"> Female 
+							<input type="radio" name="sex" value="O"> Others 
+						</span>
+						<label style="grid-area:interest;justify-self:end;" name="interests">Interests/Hobbies:</label>
+						<select id="interest1" style="grid-area:input1;" name="interests" required>
+							<option style="color:gray;" value="" disabled selected> Choose from list...</option>
+							<option value="Art">Art</option>
+							<option value="Painting">Painting</option>
+							<option value="Gardening">Gardening</option>
+							<option value="Television">Television</option>
+							<option value="Sports">Sports</option>
+							<option value="Music">Music</option>
+							<option value="Gaming">Gaming</option>
+							<option value="Technology">Technology</option>
+							<option value="Shopping">Shopping</option>
+							<option value="Traveling">Traveling</option>
+							<option value="Dancing">Dancing</option>
+							<option value="Singing">Singing</option>
+							<option value="Cooking">Cooking</option>
+							<option value="Reading">Reading</option>
+							<option value="Fitness">Fitness</option>
+							<option value="Collecting">Collecting</option>
+							<option value="Movies">Movies</option>
+							<option value="Acting">Acting</option>
+							<option value="Fishing">Fishing</option>
+							<option value="Sleeping">Sleeping</option>
+						</select>
+						<select id="interest2" style="grid-area:input2;" name="interests" required>
+							<option style="color:gray;" value="" disabled selected> Choose from list...</option>
+							<option value="Art">Art</option>
+							<option value="Painting">Painting</option>
+							<option value="Gardening">Gardening</option>
+							<option value="Television">Television</option>
+							<option value="Sports">Sports</option>
+							<option value="Music">Music</option>
+							<option value="Gaming">Gaming</option>
+							<option value="Technology">Technology</option>
+							<option value="Shopping">Shopping</option>
+							<option value="Traveling">Traveling</option>
+							<option value="Dancing">Dancing</option>
+							<option value="Singing">Singing</option>
+							<option value="Cooking">Cooking</option>
+							<option value="Reading">Reading</option>
+							<option value="Fitness">Fitness</option>
+							<option value="Collecting">Collecting</option>
+							<option value="Movies">Movies</option>
+							<option value="Acting">Acting</option>
+							<option value="Fishing">Fishing</option>
+							<option value="Sleeping">Sleeping</option>
+						</select>
+						<select id="interest3" style="grid-area:input3;" name="interests" required>
+							<option style="color:gray;" value="" disabled selected> Choose from list...</option>
+							<option value="Art">Art</option>
+							<option value="Painting">Painting</option>
+							<option value="Gardening">Gardening</option>
+							<option value="Television">Television</option>
+							<option value="Sports">Sports</option>
+							<option value="Music">Music</option>
+							<option value="Gaming">Gaming</option>
+							<option value="Technology">Technology</option>
+							<option value="Shopping">Shopping</option>
+							<option value="Traveling">Traveling</option>
+							<option value="Dancing">Dancing</option>
+							<option value="Singing">Singing</option>
+							<option value="Cooking">Cooking</option>
+							<option value="Reading">Reading</option>
+							<option value="Fitness">Fitness</option>
+							<option value="Collecting">Collecting</option>
+							<option value="Movies">Movies</option>
+							<option value="Acting">Acting</option>
+							<option value="Fishing">Fishing</option>
+							<option value="Sleeping">Sleeping</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="tab"> <h1>Choose a Mate</h1>
+					<div class="choiceContainer">
+						<div onclick="displayChoice(this.id)" class="choiceItem" id="choice1">
+							<img src="images/placeholder.png" alt="mate1">
+							<br>
+							<h4>Name of Mate</h4>
+							<p>Age of Mate</p>
+						</div>
+						<div onclick="displayChoice(this.id)" class="choiceItem" id="choice2">
+							<img src="images/placeholder.png" alt="mate2">
+							<br>
+							<h4>Name of Mate</h4>
+							<p>Age of Mate</p>
+						</div>
+						<div onclick="displayChoice(this.id)" class="choiceItem" id="choice3">
+							<img src="images/placeholder.png" alt="mate3">
+							<br>
+							<h4>Name of Mate</h4>
+							<p>Age of Mate</p>
+						</div>
+					</div>
+			</div>
+			</div>
+			<div class="page">
+				<div class="tab"> <h1>Activity Details</h1>
+					<div class="activityDetails">
+						<label style="grid-area:hours;justify-self:end;" >Hours:</label>
+						<span style="display:flex;justify-content:flex-start;gap:5px;align-items:center;flex;grid-area:input;justify-self:start;width:100%;">
+							<span style="display:flex;gap:5px;align-items:center;font-size:0.8em;padding:1em;>
+								<label for="meet-up-hours"> Meet-up ($20/hr)</label>
+								<input type="text" oninput="calculate();" name="hours" id="meet-up-hours" style="width:30px"required>
+							</span>
+							<span style="display:flex;gap:5px;align-items:center;font-size:0.8em;padding:1em;>
+								<label for="online-hours"> Online ($15/hr)</label>
+								<input type="text" oninput="calculate()" name="hours" id="online-hours" style="width:30px">
+							</span>
+							<span style="font-weight:bold;font-size:0.8em;padding:1em;" id="result">Total: </span>
+						</span>
+						<label style="grid-area:activity;justify-self:end;" for="activity"> Activity: </label>
+						<select id="activity" style="grid-area:list;" name="activity" required>
+							<option style="color:gray;" value="" disabled selected> Choose from list...</option>
+							<option value="Art">Art</option>
+							<option value="Painting">Painting</option>
+							<option value="Gardening">Gardening</option>
+							<option value="Television">Television</option>
+							<option value="Sports">Sports</option>
+							<option value="Music">Music</option>
+							<option value="Gaming">Gaming</option>
+							<option value="Technology">Technology</option>
+							<option value="Shopping">Shopping</option>
+							<option value="Traveling">Traveling</option>
+							<option value="Dancing">Dancing</option>
+							<option value="Singing">Singing</option>
+							<option value="Cooking">Cooking</option>
+							<option value="Reading">Reading</option>
+							<option value="Fitness">Fitness</option>
+							<option value="Collecting">Collecting</option>
+							<option value="Movies">Movies</option>
+							<option value="Acting">Acting</option>
+							<option value="Fishing">Fishing</option>
+							<option value="Sleeping">Sleeping</option>
+						</select>
+						<label style="grid-area:description;justify-self:end;align-self:baseline" for="activityDescription"> Description: </label>
+						<textarea style="grid-area:txtarea;width:100%;justify-self:start;margin:0px;" rows="4" name="activityDescription" for="usrform"> Description of your ideal activity...</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="tab"> <h1>Payment Details</h1>
+					<div class="paymentDetails">
+						<label style="grid-area:cardName;" >Name on Card: </label>
+						<input style="grid-area:nameInput;" placeholder="Name on Card..." oninput="this.className =' '" required>
+						<label style="grid-area:cardNum;" for="cardNumer">Card Number: </label>
+						<input id="cardNumber" style="grid-area:numInput" placeholder="Card Number..." oninput="this.className =' '" required>
+						<label style="grid-area:cardExp;" for="cardExpiry">Expiry: </label>
+						<input id="cardExpiry" style="grid-area:expInput;" placeholder="mm/yy" oninput="this.className =' '" required>
+						<span style="grid-area:cvv;justify-self:end;">
+							<label for="CVV">CVV: </label>
+							<input id="CVV" placeholder="###" oninput="this.className =' '" required>
+						</span>
+						<input id="tickBox" style="grid-area:tick;justify-self:end;" type="checkbox" name="agreement" oninput="this.className =' '" required>
+						<label style="grid-area:agreement;justify-self:start;font-size:0.5em" for="tickBox"> By ticking this box you agree to our Terms & Conditions </label>
+					</div>
+				</div>
+			</div>
+			<div class="page" id="confirmationPage">
+				<div class="tab"> <h1>Booking Confirmation</h1>
+					<div class="choiceContainer">
+						<div id="chosenMate" style="border: 1px solid #aaaaaa;">
+								<img src="images/placeholder.png" alt="chosenMate">
+								<br>
+								<h4>Name of Mate</h4>
+								<p>Age of Mate</p>
+						</div>
+					</div>	
+					<br>
+					<p style="font-size:0.8em;"> Your Booking#123456 is now confirmed. Please check your email for the receipt. Instructions for what to expect next is found in your email as well </p>
+					<br>
+					<a href="index.html"><button type="button" style="align-self:center;"> Back to Home </button></a>
+				</div>
+			</div>
+			<p id="warning"></p>
+			<p id="warningA"></p>
+			<p id="warningB"></p>
+			<div class="button-container">
+				<button id="reset" onclick="resetInfo()" type="button">Reset</button>
+				<button onclick="nextBtn(-1)" id="prev">Prev</button>
+				<button onclick="nextBtn(1)" id="next">Next</button>
+				<button onclick="main()" id="algoNext">Next</button>
+			</div>
+			<div style="justify-self:center;margin-top:40px;">
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+				<span class="step"></span>
+			</div>
+		</form>
+	<script src="javascript/multiStepScript.js"></script>
+	<footer id="footer">
+	</footer>
+</body>
+</html>
