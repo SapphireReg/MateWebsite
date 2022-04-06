@@ -1,6 +1,6 @@
 # MateWebsite
 This is a group project for our introductory Web Development Class at Wintec.
-by 
+by Error404 Group
 Reginald Abellana ( Logo/Branding | Web & Graphic Design | Booking Page | Home Page )
 Jaspreet Dalla ( Reviews Page | AboutUs Page )
 Dominic Nathan ( Services Page | CopyWriting )
