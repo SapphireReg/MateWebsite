@@ -146,8 +146,7 @@ function validateForm() {
 	//validate hours input type
 	if (currentTab == 3) {
 		if (
-			!validateNumHours(document.getElementById("meet-up-hours").value) ||
-			!validateNumHours(document.getElementById("online-hours").value) ||
+			!validateNumHours(document.getElementById("meet-up-hours").value + document.getElementById("online-hours").value) ||
 			document.getElementById("activity").value == ""
 			) {
 			valid = false;
