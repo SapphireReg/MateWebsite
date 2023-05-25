@@ -152,7 +152,7 @@ function validateForm() {
 			valid = false;
 		}
 
-		if (!validateNumHours(document.getElementById("meet-up-hours").value) || !validateNumHours(document.getElementById("online-hours").value)) {
+		if (!validateNumHours(document.getElementById("meet-up-hours").value + document.getElementById("online-hours").value)) {
 			document.getElementById("warning").innerHTML = "Hours must be numbers and within 1 - 16";
 		}
 
